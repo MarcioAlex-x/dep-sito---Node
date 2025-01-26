@@ -1,12 +1,14 @@
 import express from 'express'
 import ProdutosController from '../controllers/ProdutosController.js';
-import { Produto } from '../models/Produto.js';
 
 export const router = express.Router()
 
-router.get('/produtos', ProdutosController.consultarProdutos)
-router.get('/produto/:nome', ProdutosController.buscarProduto)
-router.get('/produto/:id', ProdutosController.constultarProduto)
+router.get('/buscar', ProdutosController.buscar)
+router.get('/buscarId/:id', ProdutosController.buscarId)
+router.get('/buscarNome/:nome',ProdutosController.buscarNome)
 router.post('/create', ProdutosController.addProduto)
-router.put('/atualizar/:id',ProdutosController.atualizarProduto)
+router.post('/venda/:id', ProdutosController.venda)
+router.post('/reposicao/:id', ProdutosController.reposicao)
+router.put('/atualizar/:id', ProdutosController.atualizarProduto)
 router.delete('/apagar/:id', ProdutosController.apagarProduto)
+
